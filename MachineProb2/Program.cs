@@ -102,31 +102,22 @@ namespace MachineProb2
                 }
                 else if (operation == '3')
                 {
-                    int[,] resultMatrix = new int[z.GetLength(0), secondMatrix.GetLength(1)];
-
-                    // Matrix multiplication algorithm
-                    for (int i = 0; i < z.GetLength(0); i++)
+                   if (x > secondMatrix.GetLength(0))
+                   {
+                     Console.WriteLine("Error: Second matrix does not have enough rows for multiplication.");
+                   }
+                  else
+                  {
+                     Console.WriteLine("Matrix After Multiplication:");
+                     for (int i = 0; i < x; i++)
                     {
-                        for (int j = 0; j < secondMatrix.GetLength(1); j++)
-                        {
-                            int sum = 0;
-                            for (int k = 0; k < z.GetLength(1); k++)
-                            {
-                                sum += z[i, k] * secondMatrix[k, j];
-                            }
-                            resultMatrix[i, j] = sum;
-                        }
+                      for (int j = 0; j < y; j++)
+                      {
+                        Console.Write(z[i, j] * secondMatrix[i, j] + "\t");
+                      }
+                      Console.WriteLine();
                     }
-
-                    Console.WriteLine("Matrix After Multiplication:");
-                    for (int i = 0; i < resultMatrix.GetLength(0); i++)
-                    {
-                        for (int j = 0; j < resultMatrix.GetLength(1); j++)
-                        {
-                            Console.Write(resultMatrix[i, j] + "\t");
-                        }
-                        Console.WriteLine();
-                    }
+                  }
                     Console.WriteLine("-----------------------------");
                 }
                 else
